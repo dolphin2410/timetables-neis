@@ -79,7 +79,7 @@ export default function Timetables({ school, edit_school }: { school: SchoolData
             }
             setTimetables(arr)
         })
-      }, []);
+      }, [_school, grade_num, class_num]);
 
     return (
         <div className="timetable">
