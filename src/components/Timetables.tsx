@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SchoolData from "../data/SchoolData.ts";
-import { formatDate, getNextWeekOf, getThisWeek } from "../api/TimeUtil.ts";
+import { formatDate, getThisWeek } from "../api/TimeUtil.ts";
 import '../styles/Timetables.css'
 
 function edit_grade() {
@@ -46,9 +46,9 @@ function setSchoolData(data) {
 export default function Timetables({ school, edit_school }: { school: SchoolData, edit_school: () => void }) {
     let [timetables, setTimetables] = useState<string[][]>([])
 
-    let [grade_num, setGrade_num] = useState(getGrade())
-    let [class_num, setClass_num] = useState(getClass())
-    let [_school, set_School] = useState(school)
+    let [grade_num, _setGrade_num] = useState(getGrade())
+    let [class_num, _setClass_num] = useState(getClass())
+    let [_school, _set_School] = useState(school)
 
     //! todo save current grade and class
 
