@@ -1,0 +1,59 @@
+.timetable {
+    min-width: 700px;
+    width: 60vw;
+    min-height: 80vh;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(119, 119, 119, 0.2), 0 6px 20px 0 rgba(116, 116, 116, 0.19);
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    min-width: 300px;
+}
+
+.timetable-title {
+    justify-self: center;
+    align-self: center;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.timetable-title:hover {
+    transform: scale(1.2);
+    text-shadow: 1px 1px 20px rgba(119, 119, 119, 0.5);
+}
+
+.timetable-body {
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    height: fit-content;
+    align-self: center;
+    justify-self: center;
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+td,
+th {
+    width: 50px;
+    padding: 5px;
+}
+
+.subjects {
+}
+
+tr:not(:last-child) > td:hover {
+    transform: scale(1.1);
+}
+
+#change-school {
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+}
