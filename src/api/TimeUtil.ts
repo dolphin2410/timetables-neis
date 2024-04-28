@@ -24,7 +24,7 @@ function getMonday() {
     if (day >= 1 && day <= 5) {
         newDate = d.getDate() - day + 1
     } else {
-        newDate = d.getDate() + (7 - (day == 0 ? 7 : day)) + 1
+        newDate = d.getDate() + (7 - (day === 0 ? 7 : day)) + 1
     }
     return new Date(d.setDate(newDate))
 }

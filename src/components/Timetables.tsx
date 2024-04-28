@@ -46,13 +46,14 @@ function setSchoolData(data) {
 export default function Timetables({ school, edit_school }: { school: SchoolData, edit_school: () => void }) {
     let [timetables, setTimetables] = useState<string[][]>([])
 
-    let grade_num = getGrade()
-    let class_num = getClass()
+    let [grade_num, setGrade_num] = useState(getGrade())
+    let [class_num, setClass_num] = useState(getClass())
+    let [_school, set_School] = useState(school)
 
     //! todo save current grade and class
 
     useEffect(() => {
-        setSchoolData(JSON.stringify(school))
+        setSchoolData(JSON.stringify(_school))
     
         let dateString = getThisWeek().map(x => {
             return formatDate(x)
@@ -60,7 +61,7 @@ export default function Timetables({ school, edit_school }: { school: SchoolData
     
         (async () => {
             return await Promise.all(dateString.map(async x => {
-                return await getTimetableInfo(x, grade_num, class_num, school.atpt_code, school.school_code)
+                return await getTimetableInfo(x, grade_num, class_num, _school.atpt_code, _school.school_code)
             }))
         })().then(x => {
             let arr: string[][] = []
