@@ -41,9 +41,6 @@ th {
     padding: 5px;
 }
 
-.subjects {
-}
-
 tr:not(:last-child) > td:hover {
     transform: scale(1.1);
 }

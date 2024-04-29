@@ -1,10 +1,17 @@
 import React, { useState } from "react"
 import Search from "./Search.tsx"
 import Timetables from "./Timetables.tsx"
+import { getSchoolDataLocalStorage, setSchoolDataLocalStorage } from "../api/LocalStorage.ts"
 
 export default function App() {
-    let [webState, setWebState] = useState("search")
-    let [schoolData, setSchoolData] = useState(null)
+    let [webState, setWebState] = useState("")
 
-    return webState === "search" ? <Search click_callback={() => {}} select_school={s => {setSchoolData(s); setWebState("timetables")}} /> : <Timetables school={schoolData!!} edit_school={() => {setWebState("search")}} />
+    let localStorageSchoolData = getSchoolDataLocalStorage()
+    // todo: validate SchoolData
+
+    if (localStorageSchoolData == null || webState === "search") {
+        return <Search select_school={s => {setSchoolDataLocalStorage(s); setWebState("timetables")}} />
+    } else {
+        return <Timetables school={localStorageSchoolData!!} edit_school={() => setWebState("search")} />
+    }
 }

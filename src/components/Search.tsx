@@ -38,7 +38,7 @@ function validateAndContinue(schoolList: string[], formEvent: React.FormEvent<HT
     }
 }
 
-export default function Search({ click_callback, select_school }) {
+export default function Search({ select_school }) {
     let [schoolList, setSchoolList] = useState<string[]>([])
 
     return (
@@ -52,7 +52,7 @@ export default function Search({ click_callback, select_school }) {
                 </div>
                 <div className="search-body">
                     <form className="search-input-container" action="" onSubmit={e => validateAndContinue(schoolList, e, select_school)}>
-                        <input id="school-search-input" className="search-input" list="school-list" type="text" placeholder="search school" onClick={click_callback} onKeyUp={e => updateSchoolRecommendations(e, setSchoolList)} />
+                        <input id="school-search-input" className="search-input" list="school-list" type="text" placeholder="search school" onKeyUp={e => updateSchoolRecommendations(e, setSchoolList)} />
                         <datalist id="school-list">
                             {
                                 schoolList.map((e, i) => {
